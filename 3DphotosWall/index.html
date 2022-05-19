@@ -5,6 +5,12 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<title></title>
 		<style type="text/css">
+			body {
+				width: 100vw;
+				height: 100vh;
+				position: relative;
+				background: linear-gradient(to bottom right, #ee9ca7 0%, #ee9ca7 100%);
+			}
 			* {
 				margin: 0;
 			}
@@ -12,9 +18,18 @@
 				width: 100vw;
 				display: flex;
 				flex-wrap: wrap;
+				padding: 20px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				box-sizing: border-box;
+				transform: translate(-50%, -50%);
+				border-radius: 5px;
+				overflow: hidden;
 			}
 			#imgwrap img{
-				width: 33.33%;
+				width: calc((100vw - 40px) / 3);
+				height: calc((100vw - 40px) / 3);
 			}
 			#btn{width: 100px;text-align: center;font: 16px/40px "微软雅黑";color: white;padding: 0 20px;
 			margin:0 auto;border-radius:5px;background: rgb(0,100,0);box-shadow: 2px 2px 5px rgba(0,0,0,0.5);cursor: pointer;}
@@ -33,7 +48,7 @@
 				var imgs=document.querySelectorAll('img');
 				var on=true;		//这个变量决定用户是否可以再次点击(true代表可以点，false代表不可以点)
 //				给btn添加点击事件
-				btn.onclick=function(){
+				function exec(){
 					if(!on){
 						return;
 					}
@@ -103,7 +118,7 @@
 							},false);
 						}
 
-						btn.onclick();
+						exec();
 			};
 		</script>
 	</head>
@@ -118,9 +133,6 @@
 			<img src="img/7.jpg" alt="" />
 			<img src="img/8.jpg" alt="" />
 			<img src="img/9.jpg" alt="" />
-		</div>
-		<div id="btn">
-			点击查看效果
 		</div>
 	</body>
 </html>
